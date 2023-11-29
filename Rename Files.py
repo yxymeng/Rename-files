@@ -6,7 +6,7 @@ def rename_files(folder_path, keywords):
     count = 1
     for file in files:
         if any(keyword in file for keyword in keywords):
-            new_name = f"{count:03d}_{file}"
+            new_name = f"{count:03d}. {file}"
             try:
                 os.rename(os.path.join(folder_path, file), os.path.join(folder_path, new_name))
                 count += 1
