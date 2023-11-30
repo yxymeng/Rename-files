@@ -1,5 +1,3 @@
-# 删除第一个中文字之前的所有字符，再按照关键词的顺序进行正则匹配排序
-
 import os
 import re
 
@@ -20,10 +18,19 @@ def rename_dwg_files(folder_path, keywords):
                 else:
                     # 如果文件名中没有中文字符，则不进行删除
                     new_name = "{:03d}. {}".format(count, file)
-                    
+
+                # 处理文件名冲突
+                base_name, extension = os.path.splitext(new_name)
+                new_name_with_suffix = new_name
+                suffix = 1
+
+                while os.path.exists(os.path.join(folder_path, new_name_with_suffix)):
+                    new_name_with_suffix = "{}_{:02d}{}".format(base_name, suffix, extension)
+                    suffix += 1
+
                 try:
                     # 重命名文件
-                    os.rename(os.path.join(folder_path, file), os.path.join(folder_path, new_name))
+                    os.rename(os.path.join(folder_path, file), os.path.join(folder_path, new_name_with_suffix))
                 except Exception as e:
                     print(f"Error renaming file {file}: {e}")
 
