@@ -1,12 +1,20 @@
 import os
 import re
 
+def is_already_renamed(filename):
+    # 检查文件名是否包含序号
+    return re.match(r'\d{3}\. ', filename)
+
 def rename_dwg_files(folder_path, keywords):
     # 获取文件夹下的所有dwg文件，也可以其他的
     files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f)) and f.lower().endswith(".dwg")]
 
     for count, keyword in enumerate(keywords, start=1):
         for file in files:
+            # 检查文件是否已经重命名
+            if is_already_renamed(file):
+                continue
+
             # 使用正则表达式匹配关键字
             match = re.search(keyword, file)
             if match:
