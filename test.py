@@ -55,10 +55,3 @@ browse_button.pack()
 keywords_entry.pack()
 submit_button.pack()
 root.mainloop()
-# 获取当前脚本所在的文件夹路径
-#script_path = os.path.dirname(os.path.realpath(__file__))
-# 使用当前脚本所在的文件夹作为文件夹路径
-#folder_path = script_path
-# 请将下面的关键字替换成你需要的关键字列表，并按照希望的顺序排列
-#keywords = ["侧围", "底盘", "燃油", "顶盖", "踏步", "外饰"]
-#rename_dwg_files(folder_path, keywords)
