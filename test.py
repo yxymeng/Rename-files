@@ -1,4 +1,6 @@
-﻿import os
+#GUI界面，自定义文件夹位置，自定义关键词，关键词组之间用英文";"分隔，排序按照关键词组顺序从001开始。
+#关键词之间用空格间隔，每个关键词组里可以有一个或者无数个关键词，"并"语法，只有关键词组里所有的关键词都匹配到才会对其重命名。
+import os
 import re
 import tkinter as tk
 from tkinter import filedialog, messagebox
