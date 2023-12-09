@@ -73,7 +73,7 @@ def start_rename():
     if use_custom_rename and not keywords_input:
         show_warning("使用自定义重命名时，请填写关键词。")
         return
-
+    #设置默认关键词组，用英文的";"分隔关键词组，关键词直接用空格隔开，只有包含全部关键词的关键词组才会重命名。
     if not use_custom_rename:
         keywords_input = "侧围 骨架;底盘;电器;燃油"
 
